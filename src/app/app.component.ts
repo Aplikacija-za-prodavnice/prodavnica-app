@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'prvi_projekat';
+  ime:string="Moje ime je Janko";
+  objekat= document.getElementById("naslov");
 }
