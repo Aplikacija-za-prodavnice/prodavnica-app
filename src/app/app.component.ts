@@ -6,7 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'prvi_projekat';
-  ime:string="Moje ime je Janko";
-  objekat= document.getElementById("naslov");
+  
 }
