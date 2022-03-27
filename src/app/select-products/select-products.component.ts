@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NizService } from '../serivsi/niz/niz.service';
+import { ProductService } from '../serivsi/proizvodi/product.service';
 
 @Component({
   selector: 'app-select-products',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SelectProductsComponent implements OnInit {
 
-  constructor() { }
+  public proizvodiKlasa:ProductService = new ProductService();
+  constructor(parametar:ProductService , parametar2:NizService) {
+    this.proizvodiKlasa = parametar;
+  }
 
   ngOnInit(): void {
+    console.log(this.proizvodiKlasa.proizvod);
   }
 
 }

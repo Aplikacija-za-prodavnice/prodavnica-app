@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   
+  funkcija1(){
+    console.log("Funkcija radi");
+  }
 }

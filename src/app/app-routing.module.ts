@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CompareProductsComponent } from './compare-products/compare-products.component';
 import { DetailsComponent } from './details/details.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 import { SelectMarketsComponent } from './select-markets/select-markets.component';
 import { SelectProductsComponent } from './select-products/select-products.component';
 
@@ -10,6 +11,7 @@ const routes: Routes = [
   {path:'uporedjivanje-proizvoda', component:CompareProductsComponent},
   {path:'uporedjivanje-proizvoda/selekcija-proizvoda',component:SelectProductsComponent,pathMatch:"full"},
   {path:'uporedjivanje-proizvoda/selekcija-prodavnica',component:SelectMarketsComponent, pathMatch:"full"},
+  {path:'uporedjivanje-proizvoda/detaljnije-o-proizvodu',component:ProductDetailsComponent, pathMatch:"full"},
 ];
 
 @NgModule({

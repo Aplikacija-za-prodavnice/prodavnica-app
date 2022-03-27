@@ -2,57 +2,40 @@
     <ion-list >
         <ion-item-divider style="height: 100px;" color="primary">
             <h1>Prodavnice</h1>
-            <ion-button  slot="end" style="padding-right:15px;" color="light" routerLink="/uporedjivanje-proizvoda/selekcija-prodavnica" (click)="funkcija1()">+</ion-button>
+            <ion-button  slot="end" style="padding-right:15px;" color="light" routerLink="/uporedjivanje-proizvoda/selekcija-prodavnica" >+</ion-button>
         </ion-item-divider>
-        <ion-item *ngFor="prodavnica of prodavnice1;let i = index">
-            <div>
-                <h1>{{prodavnice1[i].naziv}}</h1>
-                <p style="margin-top: 0px;">{{prodavnice1[i].lokacija}}</p>
+        <ion-item *ngFor="prodavnica of nizKlasa1.prodavnice1; let i= index;">
+            <div >
+                <h1>{{nizKlasa1.prodavnice1[i].naziv}}</h1>
+                <p style="margin-top: 0px;">{{nizKlasa1.prodavnice1[i].lokacija}}</p>
             </div>
-            <ion-button style="width: 30px;" slot="end">-</ion-button>
+            <ion-button style="width: 30px;" slot="end" (click)="nizKlasa1.ubaciElementUListu(nizKlasa1.prodavnice1[i])">-</ion-button>
         </ion-item>
         <ion-item-divider style="height: 100px;" color="primary">
                 <h1>Proizvodi</h1>
                 <ion-button  slot="end" style="padding-right:15px;" color="light" routerLink="/uporedjivanje-proizvoda/selekcija-proizvoda">+</ion-button>
         </ion-item-divider>
-        <ion-item style="display: flex; justify-content: space-evenly; align-items: center;height: 150px;">
-            <ion-thumbnail  style="width: 30%;margin-right: 50px;"  >
-                <img src="https://images.unsplash.com/photo-1589927986089-35812388d1f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Y2Fycm90fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" style="margin-left: 10px;margin-right: 10px;" alt="">
+        <ion-item style="display: flex; justify-content: space-evenly; align-items: center;height: fit-content;" *ngFor="proizvod of proizvodiKlasa.sproizvodi;let i =index;">
+            <ion-thumbnail  style="width: 30%;margin-right: 50px;min-height: fit-content;"  >
+                <img src="https://images.unsplash.com/photo-1589927986089-35812388d1f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Y2Fycm90fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" style="margin-left: 10px;margin-right: 10px;object-fit: contain;" alt="">
             </ion-thumbnail>
-            <div style="width:70%;display: flex; flex-direction: column; justify-content: center;align-items: center;" >
-                <h1 >Proizvod 1</h1>
+            <div style="width:70%;display: flex; flex-direction: column; justify-content: center;align-items: center;"  >
+                <h1 >{{proizvodiKlasa.sproizvodi[i].naziv}}</h1>
                <div style="display: flex; justify-content: space-evenly; width: 100%;">
-                <ion-button style="margin-bottom: 30px;" >Detaljnije</ion-button>
-                <ion-button >-</ion-button>
+                <ion-button style="margin-bottom: 30px;" routerLink="/uporedjivanje-proizvoda/detaljnije-o-proizvodu" (click)="odaberiProizvod(proizvodiKlasa.sproizvodi[i])" >Detaljnije</ion-button>
+                <ion-button (click)="proizvodiKlasa.izbaciProizvodIzListe(proizvodiKlasa.sproizvodi[i])" >-</ion-button>
                </div>
             </div>
         </ion-item>
-        <ion-item style="display: flex; justify-content: space-evenly; align-items: center;height: 150px;">
-            <ion-thumbnail  style="width: 30%;margin-right: 50px;"  >
-                <img src="https://images.unsplash.com/photo-1589927986089-35812388d1f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Y2Fycm90fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" style="margin-left: 10px;margin-right: 10px;" alt="">
-            </ion-thumbnail>
-            <div style="width:70%;display: flex; flex-direction: column; justify-content: center;align-items: center;" >
-                <h1 >Proizvod 2</h1>
-               <div style="display: flex; justify-content: space-evenly; width: 100%;">
-                <ion-button style="margin-bottom: 30px;" >Detaljnije</ion-button>
-                <ion-button >-</ion-button>
-               </div>
-            </div>
-        </ion-item>
-        <ion-item style="display: flex; justify-content: space-evenly; align-items: center;height: 150px;">
-            <ion-thumbnail  style="width: 30%;margin-right: 50px;"  >
-                <img src="https://images.unsplash.com/photo-1589927986089-35812388d1f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Y2Fycm90fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" style="margin-left: 10px;margin-right: 10px;" alt="">
-            </ion-thumbnail>
-            <div style="width:70%;display: flex; flex-direction: column; justify-content: center;align-items: center;" >
-                <h1 >Proizvod 3</h1>
-               <div style="display: flex; justify-content: space-evenly; width: 100%;">
-                <ion-button style="margin-bottom: 30px;" >Detaljnije</ion-button>
-                <ion-button >-</ion-button>
-               </div>
-            </div>
-        </ion-item>
-        <div style="display:flex;justify-content: center;align-items: center;height: 150px;">
-            <ion-button>Uporedi cene</ion-button>
+        <div style="display:flex;justify-content: center;align-items: center;height: 150px;" >
+            <ion-button (click)="proizvodSaNajmanjomCenom()">Uporedi cene</ion-button>
+        </div>
+        <div>
+            <img src={{proizvod.slika}} alt="">
+            <h1>{{proizvod.naziv}}</h1>
+            <p>{{proizvod.cena}}</p>
+            <p>{{proizvod.kategorija}}</p>
+            <p>{{proizvod.prodavnica}}</p>
         </div>
     </ion-list>
 </ion-content>

@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { IonicModule } from '@ionic/angular';
 import { SelectMarketsComponent } from './select-markets/select-markets.component';
 import { SelectProductsComponent } from './select-products/select-products.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 @NgModule({
   declarations: [
-    AppComponent , routingComponents, SelectMarketsComponent, SelectProductsComponent
+    AppComponent , routingComponents, SelectMarketsComponent, SelectProductsComponent, ProductDetailsComponent
   ],
   imports: [
     BrowserModule,

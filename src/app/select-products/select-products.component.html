@@ -1,3 +1,15 @@
 <ion-content>
-    <h1>Stranica za selekciju proizvoda iz zeljenih prodavnica</h1>
+    <ion-searchbar></ion-searchbar>
+    <ion-list>
+        <ion-item  class="opcija1" *ngFor="prodavnica of proizvodiKlasa.proizvodi; let i =index;" (click)="proizvodiKlasa.ubaciProizvodUListu(proizvodiKlasa.proizvodi[i])" >
+            <ion-thumbnail >
+                <img src={{proizvodiKlasa.proizvodi[i].slika}} alt="">
+            </ion-thumbnail>
+            <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;width: 100%;">
+                <h1>{{proizvodiKlasa.proizvodi[i].naziv}}</h1>
+                <p style="margin-top: 0px; ">{{proizvodiKlasa.proizvodi[i].prodavnica}}</p>
+            </div>
+        </ion-item>
+        
+    </ion-list>
 </ion-content>
