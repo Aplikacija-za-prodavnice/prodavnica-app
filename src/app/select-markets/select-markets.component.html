@@ -1,0 +1,15 @@
+<ion-content>
+    <ion-searchbar></ion-searchbar>
+    <ion-list>
+        <ion-item *ngFor=" item of prodavnice; let i =index" (click)="unesiElementUNiz(this.prodavnice[i])" class="opcija1">
+            <ion-thumbnail >
+                <img src={{prodavnice[i].slika}} alt="">
+            </ion-thumbnail>
+            <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;width: 100%;">
+                <h1>{{prodavnice[i].naziv}}</h1>
+                <p style="margin-top: 0px; ">{{prodavnice[i].lokacija}}</p>
+            </div>
+        </ion-item>
+        
+    </ion-list>
+</ion-content>

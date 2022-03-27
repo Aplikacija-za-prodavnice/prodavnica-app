@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, Input, OnInit } from '@angular/core';
+import { SelectMarketsComponent } from '../select-markets/select-markets.component';
 @Component({
   selector: 'app-compare-products',
   templateUrl: './compare-products.component.html',
@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompareProductsComponent implements OnInit {
 
-  constructor() { }
+  public prodavnice1 = new SelectMarketsComponent().sprodavnice;
+  constructor() {
+    
+   }
 
   ngOnInit(): void {
   }
-
+  funkcija1(){
+    console.log(this.prodavnice1);
+  }
 }

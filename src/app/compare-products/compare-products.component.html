@@ -2,18 +2,18 @@
     <ion-list >
         <ion-item-divider style="height: 100px;" color="primary">
             <h1>Prodavnice</h1>
-            <ion-button  slot="end" style="padding-right:15px;" color="light">+</ion-button>
+            <ion-button  slot="end" style="padding-right:15px;" color="light" routerLink="/uporedjivanje-proizvoda/selekcija-prodavnica" (click)="funkcija1()">+</ion-button>
         </ion-item-divider>
-        <ion-item>
+        <ion-item *ngFor="prodavnica of prodavnice1;let i = index">
             <div>
-                <h1>Naziv prodavnice</h1>
-                <p style="margin-top: 0px;">Lokacija prodavnice</p>
+                <h1>{{prodavnice1[i].naziv}}</h1>
+                <p style="margin-top: 0px;">{{prodavnice1[i].lokacija}}</p>
             </div>
             <ion-button style="width: 30px;" slot="end">-</ion-button>
         </ion-item>
         <ion-item-divider style="height: 100px;" color="primary">
                 <h1>Proizvodi</h1>
-                <ion-button  slot="end" style="padding-right:15px;" color="light">+</ion-button>
+                <ion-button  slot="end" style="padding-right:15px;" color="light" routerLink="/uporedjivanje-proizvoda/selekcija-proizvoda">+</ion-button>
         </ion-item-divider>
         <ion-item style="display: flex; justify-content: space-evenly; align-items: center;height: 150px;">
             <ion-thumbnail  style="width: 30%;margin-right: 50px;"  >
