@@ -4,21 +4,29 @@
              <ion-header>
                  <ion-toolbar>
                      <ion-title class="ion-text-center" >
-                         <h1>Main Menu</h1>
+                         <h1>Glavni meni</h1>
                      </ion-title>
                  </ion-toolbar>
             </ion-header>
             <ion-content>
                 <ion-list>
-                    <ion-list-header>Navigation</ion-list-header>
+                    <ion-list-header>Pregled</ion-list-header>
                     <ion-menu-toggle auto-hide="false">
                         <ion-item routerLink="vise-o-proizvodu">
                             <ion-icon slot="start" name="home"></ion-icon>
-                            <ion-label>Home</ion-label>
+                            <ion-label>O proizvodu</ion-label>
                         </ion-item>
                         <ion-item routerLink="uporedjivanje-proizvoda">
                             <ion-icon slot="start" name="settings"></ion-icon>
-                            <ion-label>Settings</ion-label>
+                            <ion-label>Uporedi proizvode</ion-label>
+                        </ion-item>
+                        <ion-item routerLink="login">
+                            <ion-icon slot="start" name="enter"></ion-icon>
+                            <ion-label>Prijava korisnika</ion-label>
+                        </ion-item>
+                        <ion-item routerLink="login" routerLink="register">
+                            <ion-icon slot="start" name="power"></ion-icon>
+                            <ion-label>Registracija korisnika</ion-label>
                         </ion-item>
                     </ion-menu-toggle>
                 </ion-list>

@@ -48,7 +48,7 @@ export class ProductService {
       jedinica:"kg"
     },
     {
-      naziv:"Proiavod 4",
+      naziv:"Proizvod 4",
       prodavnica:"Dis",
       kategorija:"sargarepa",
       cena:200,
