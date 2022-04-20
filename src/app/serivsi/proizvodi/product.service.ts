@@ -10,10 +10,7 @@ export class ProductService {
   
   constructor() {
    }
-
-
-
-
+   
   private _proizvod: Proizvod = new Proizvod();
   public get proizvod(): Proizvod {
     return this._proizvod;

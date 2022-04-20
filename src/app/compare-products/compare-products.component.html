@@ -2,7 +2,7 @@
     <ion-list >
         <ion-item-divider style="height: 100px;" color="primary">
             <h1>Prodavnice</h1>
-            <ion-button  slot="end" style="padding-right:15px;" color="light" routerLink="/uporedjivanje-proizvoda/selekcija-prodavnica" >+</ion-button>
+            <ion-button  slot="end" style="padding-right:15px;" color="light" routerLink="/app/uporedjivanje-proizvoda/selekcija-prodavnica" >+</ion-button>
         </ion-item-divider>
         <ion-item *ngFor="prodavnica of nizKlasa1.prodavnice1; let i= index;">
             <div >
@@ -13,7 +13,7 @@
         </ion-item>
         <ion-item-divider style="height: 100px;" color="primary">
                 <h1>Proizvodi</h1>
-                <ion-button  slot="end" style="padding-right:15px;" color="light" routerLink="/uporedjivanje-proizvoda/selekcija-proizvoda">+</ion-button>
+                <ion-button  slot="end" style="padding-right:15px;" color="light" routerLink="/app/uporedjivanje-proizvoda/selekcija-proizvoda">+</ion-button>
         </ion-item-divider>
         <ion-item style="display: flex; justify-content: space-evenly; align-items: center;height: fit-content;" *ngFor="proizvod of proizvodiKlasa.sproizvodi;let i =index;">
             <ion-thumbnail  style="width: 30%;margin-right: 50px;min-height: fit-content;"  >
@@ -22,7 +22,7 @@
             <div style="width:70%;display: flex; flex-direction: column; justify-content: center;align-items: center;"  >
                 <h1 >{{proizvodiKlasa.sproizvodi[i].naziv}}</h1>
                <div style="display: flex; justify-content: space-evenly; width: 100%;">
-                <ion-button style="margin-bottom: 30px;" routerLink="/uporedjivanje-proizvoda/detaljnije-o-proizvodu" (click)="odaberiProizvod(proizvodiKlasa.sproizvodi[i])" >Detaljnije</ion-button>
+                <ion-button style="margin-bottom: 30px;" routerLink="/app/uporedjivanje-proizvoda/detaljnije-o-proizvodu" (click)="odaberiProizvod(proizvodiKlasa.sproizvodi[i])" >Detaljnije</ion-button>
                 <ion-button (click)="proizvodiKlasa.izbaciProizvodIzListe(proizvodiKlasa.sproizvodi[i])" >-</ion-button>
                </div>
             </div>
