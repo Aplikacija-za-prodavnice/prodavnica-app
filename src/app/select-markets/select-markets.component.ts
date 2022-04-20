@@ -7,9 +7,7 @@ import { NizService } from '../serivsi/niz/niz.service';
 })
 export class SelectMarketsComponent  {
 
-  public nizKlasa:NizService=new NizService();
-  constructor(private niz1: NizService) { 
-    this.nizKlasa=this.niz1;
+  constructor(public nizKlasa: NizService) { 
   }
   
   

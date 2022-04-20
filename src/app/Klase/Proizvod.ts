@@ -1,11 +1,11 @@
 export class Proizvod { 
-    naziv?: string=""; 
-    prodavnica?: string=""; 
-    kategorija?: string=""; 
+    naziv?: string=undefined; 
+    prodavnica?: string=undefined; 
+    kategorija?: string=undefined; 
     cena?: number=0; 
-    slika?: string="";
-    jedinica?:string="";
-    public constructor(naziv?: "", prodavnica?: "", kategorija?:"", cena?:0, slika?: "",jeidnica?: "") {
+    slika?: string=undefined;
+    jedinica?:string=undefined;
+    public constructor(naziv?:string, prodavnica?: string, kategorija?:string, cena?:number, slika?:string,jeidnica?: string) {
             this.naziv = naziv;
             this.prodavnica = prodavnica;
             this.kategorija=kategorija;

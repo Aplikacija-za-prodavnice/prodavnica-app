@@ -10,11 +10,7 @@ import { ProductService } from '../serivsi/proizvodi/product.service';
 export class CompareProductsComponent implements OnInit {
 
   public proizvod:Proizvod=new Proizvod();
-  public nizKlasa1:NizService=new NizService();
-  public proizvodiKlasa:ProductService = new ProductService();
-  constructor(private parametar:NizService, private parametar2:ProductService ) {
-    this.nizKlasa1=this.parametar;
-    this.proizvodiKlasa=this.parametar2;
+  constructor(public nizKlasa1:NizService, public proizvodiKlasa:ProductService) {
    }
   ngOnInit(): void {
   }

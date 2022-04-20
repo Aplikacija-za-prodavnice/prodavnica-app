@@ -8,9 +8,7 @@ import { ProductService } from '../serivsi/proizvodi/product.service';
 })
 export class ProductDetailsComponent implements OnInit {
 
-  public proizvodiKlasa:ProductService=new ProductService();
-  constructor(parametar1:ProductService) {
-    this.proizvodiKlasa=parametar1;
+  constructor(public proizvodiKlasa:ProductService) {
    }
 
   ngOnInit(): void {

@@ -1,13 +1,13 @@
 <ion-content>
     <ion-searchbar></ion-searchbar>
     <ion-list>
-        <ion-item  class="opcija1" *ngFor="prodavnica of proizvodiKlasa.proizvodi; let i =index;" (click)="proizvodiKlasa.ubaciProizvodUListu(proizvodiKlasa.proizvodi[i])" >
+        <ion-item  class="opcija1" *ngFor="let proizvod of proizvodiKlasa.proizvodi;" (click)="proizvodiKlasa.ubaciProizvodUListu(proizvod)" >
             <ion-thumbnail >
-                <img src={{proizvodiKlasa.proizvodi[i].slika}} alt="">
+                <img src={{proizvod.slika}} alt="">
             </ion-thumbnail>
             <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;width: 100%;">
-                <h1>{{proizvodiKlasa.proizvodi[i].naziv}}</h1>
-                <p style="margin-top: 0px; ">{{proizvodiKlasa.proizvodi[i].prodavnica}}</p>
+                <h1>{{proizvod.naziv}}</h1>
+                <p style="margin-top: 0px; ">{{proizvod.prodavnica}}</p>
             </div>
         </ion-item>
         

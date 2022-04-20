@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule , routingComponents} from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IonicModule } from '@ionic/angular';
@@ -16,6 +15,9 @@ import { AccountComponent } from './account/account.component';
 import { AccountMainComponent } from './account-main/account-main.component';
 import { MainComponent } from './main/main.component';
 import { SwiperModule } from 'swiper/angular';
+import { NizService } from './serivsi/niz/niz.service';
+import { ProductService } from './serivsi/proizvodi/product.service';
+import { ShoppingCartService } from './serivsi/shopping-cart/shopping-cart.service';
 @NgModule({
   declarations: [
     AppComponent , routingComponents, SelectMarketsComponent, SelectProductsComponent, ProductDetailsComponent, LoginComponent, RegisterComponent, ApplicationComponent, CompareProductsMainComponent, ShoppingCartComponent, AccountComponent, AccountMainComponent, MainComponent
@@ -26,7 +28,7 @@ import { SwiperModule } from 'swiper/angular';
     IonicModule.forRoot(),
     SwiperModule
   ],
-  providers: [],
+  providers: [NizService,ProductService,ShoppingCartService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

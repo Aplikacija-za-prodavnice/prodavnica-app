@@ -5,7 +5,6 @@ import { AccountComponent } from './account/account.component';
 import { ApplicationComponent } from './application/application.component';
 import { CompareProductsMainComponent } from './compare-products-main/compare-products-main.component';
 import { CompareProductsComponent } from './compare-products/compare-products.component';
-import { DetailsComponent } from './details/details.component';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
@@ -20,7 +19,7 @@ const routes: Routes = [
   {path:'register',component:RegisterComponent, pathMatch:"full"},
   {path:'app', component:ApplicationComponent, children:[
     {path:'',component:MainComponent,pathMatch:"full"},
-    {path:'vise-o-proizvodu', component:DetailsComponent},
+    {path:'detaljnije-o-proizvodu', component:ProductDetailsComponent},
     {path:'uporedjivanje-proizvoda', component:CompareProductsMainComponent, children:[
       {path:'', component:CompareProductsComponent,pathMatch:"full"},
       {path:'selekcija-proizvoda',component:SelectProductsComponent,pathMatch:"full"},
@@ -43,4 +42,4 @@ const routes: Routes = [
 export class AppRoutingModule {
   
  }
- export const routingComponents = [DetailsComponent,CompareProductsComponent]
+ export const routingComponents = [CompareProductsComponent]

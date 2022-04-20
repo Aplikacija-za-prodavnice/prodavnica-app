@@ -1,13 +1,13 @@
 <ion-content>
     <ion-searchbar></ion-searchbar>
     <ion-list>
-        <ion-item  class="opcija1" *ngFor="prodavnica of nizKlasa.prodavnice; let i =index;" (click)="nizKlasa.izbaciElementIzListe(nizKlasa.prodavnice[i])" >
+        <ion-item  class="opcija1" *ngFor="let prodavnica of nizKlasa.prodavnice;" (click)="nizKlasa.izbaciElementIzListe(prodavnica)" >
             <ion-thumbnail >
-                <img src={{nizKlasa.prodavnice[i].slika}} alt="">
+                <img src={{prodavnica.slika}} alt="">
             </ion-thumbnail>
             <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;width: 100%;">
-                <h1>{{nizKlasa.prodavnice[i].naziv}}</h1>
-                <p style="margin-top: 0px; ">{{nizKlasa.prodavnice[i].lokacija}}</p>
+                <h1>{{prodavnica.naziv}}</h1>
+                <p style="margin-top: 0px; ">{{prodavnica.lokacija}}</p>
             </div>
         </ion-item>
         
