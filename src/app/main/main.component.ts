@@ -24,5 +24,6 @@ export class MainComponent implements OnInit {
   ubaciProizvodUKorpu(product:Proizvod){
     this.shoppingCartService.ubaciProizvodUKorpu(product);
   }
+  
 
 }

@@ -25,7 +25,7 @@
                 <h1>{{product.naziv}}</h1>
                 <p>cena: {{product.cena}} din/{{product.jedinica}} </p>
                 <div>
-                    <ion-button>Detaljnije</ion-button>
+                    <ion-button routerLink="/app/detaljnije-o-proizvodu" (click)="this.productService.proizvod=product">Detaljnije</ion-button>
                     <ion-button (click)="ubaciProizvodUKorpu(product)">Dodaj u korpu</ion-button>
                 </div>
             </ng-template>
@@ -41,7 +41,7 @@
                 <h1>{{product.naziv}}</h1>
                 <p>cena: {{product.cena}} din/{{product.jedinica}} </p>
                 <div>
-                    <ion-button>Detaljnije</ion-button>
+                    <ion-button routerLink="/app/detaljnije-o-proizvodu" (click)="this.productService.proizvod=product">Detaljnije</ion-button>
                     <ion-button (click)="ubaciProizvodUKorpu(product)">Dodaj u korpu</ion-button>
                 </div>
             </ng-template>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { filter } from 'rxjs';
+import {LoginComponent} from '../login/login.component'
 
 @Component({
   selector: 'app-register',
@@ -7,9 +10,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  public form:FormGroup|undefined;
+  public subscription;
+  constructor(fb:FormBuilder) {
+    this.form=fb.group({
+      "firstName":this.firstName,
+      "lastName":this.lastName,
+      "email":this.email,
+      "password1":this.password1,
+      "password2":this.password2
+    });
+    this.subscription =this.form.valueChanges
+    .pipe(filter(event=>(this.form?.valid==true&&this.password1.value===this.password2.value)))
+    .subscribe(data=>{console.log(data);document.getElementById("registerButton")?.setAttribute("disabled","false");});
+   }
 
+  firstName:FormControl=new FormControl("",Validators.required);
+  lastName:FormControl=new FormControl("",Validators.required);
+  email:FormControl=new FormControl("",[Validators.required,Validators.pattern("^(([^<>()[\]\\.,;:\s@\"]+)|([A-z0-9]+.[A-z0-9]+)*)@(([a-zA-Z\-0-9]+[\.])+[a-zA-Z]{2,4})$")]);
+  password1:FormControl = new FormControl("",[Validators.required,Validators.minLength(8)]);
+  password2:FormControl = new FormControl("",[Validators.required,Validators.minLength(8)]);
   ngOnInit(): void {
+  }
+  registracija(){
+    document.getElementById("register")
+    this.subscription.unsubscribe();
+    //Da li se ovako brise Observable ?
+    const login=new LoginComponent(new FormBuilder());
+    login.subscription.unsubscribe();
   }
 
 }

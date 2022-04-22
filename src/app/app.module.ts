@@ -18,6 +18,7 @@ import { SwiperModule } from 'swiper/angular';
 import { NizService } from './serivsi/niz/niz.service';
 import { ProductService } from './serivsi/proizvodi/product.service';
 import { ShoppingCartService } from './serivsi/shopping-cart/shopping-cart.service';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent , routingComponents, SelectMarketsComponent, SelectProductsComponent, ProductDetailsComponent, LoginComponent, RegisterComponent, ApplicationComponent, CompareProductsMainComponent, ShoppingCartComponent, AccountComponent, AccountMainComponent, MainComponent
@@ -26,7 +27,8 @@ import { ShoppingCartService } from './serivsi/shopping-cart/shopping-cart.servi
     BrowserModule,
     AppRoutingModule,
     IonicModule.forRoot(),
-    SwiperModule
+    SwiperModule,
+    ReactiveFormsModule
   ],
   providers: [NizService,ProductService,ShoppingCartService],
   bootstrap: [AppComponent]
