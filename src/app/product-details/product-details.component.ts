@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../serivsi/proizvodi/product.service';
+import { ProizvodiSearchService } from '../serivsi/proizvodi/proizvodi-search.service';
 
 @Component({
   selector: 'app-product-details',
@@ -8,7 +8,7 @@ import { ProductService } from '../serivsi/proizvodi/product.service';
 })
 export class ProductDetailsComponent implements OnInit {
 
-  constructor(public proizvodiKlasa:ProductService) {
+  constructor(public proizvodiSearchService:ProizvodiSearchService) {
    }
 
   ngOnInit(): void {

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { NizService } from '../serivsi/niz/niz.service';
-import { ProductService } from '../serivsi/proizvodi/product.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ProizvodiSearchService } from '../serivsi/proizvodi/proizvodi-search.service';
 
 @Component({
   selector: 'app-select-products',
@@ -9,11 +9,15 @@ import { ProductService } from '../serivsi/proizvodi/product.service';
 })
 export class SelectProductsComponent implements OnInit {
 
-  constructor(public proizvodiKlasa:ProductService ) {
+  constructor(public proizvodiSearchService:ProizvodiSearchService ) {
   }
 
+  observable=new Observable((observer)=>{
+    document.getElementById("productSearch")?.addEventListener('input',()=>{observer.next(this.ionSearchbar.value.toString())});
+  });
+  @ViewChild('productSearch') ionSearchbar:any;
   ngOnInit(): void {
-    console.log(this.proizvodiKlasa.proizvod);
+    this.observable.subscribe((value)=>{this.proizvodiSearchService.trazi(value)});
   }
 
 }

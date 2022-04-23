@@ -2,6 +2,7 @@ import { Component,  OnInit} from '@angular/core';
 import {  FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { filter} from 'rxjs';
 import { RegisterComponent } from '../register/register.component';
+import { AccountService } from '../serivsi/account/account.service';
 
 @Component({
   selector: 'app-login',
@@ -16,14 +17,16 @@ export class LoginComponent implements OnInit {
 
   email:FormControl=new FormControl("",[Validators.required,Validators.pattern(this.regex)]);
   password:FormControl=new FormControl("",[Validators.required,Validators.minLength(8)]);
+  account:AccountService=new AccountService();
   constructor(fb:FormBuilder) {
     this.form=fb.group({
       "email":this.email,
       "password":this.password,
     });
     this.subscription =this.form.valueChanges
-    .pipe(filter(ev=>(this.form?.valid===true)))
-    .subscribe(data=>{console.log(JSON.stringify(data));document.getElementById("loginButton")?.setAttribute("disabled","false");},()=>{},()=>{console.log("completed")});
+    .pipe(filter(ev=>(this.form?.valid===true&&this.account.provera(this.form))))
+    .subscribe(data=>{console.log(JSON.stringify(data));
+      document.getElementById("loginButton")?.setAttribute("disabled","false");});
   }
 
 

@@ -4,31 +4,31 @@
             <h1>Prodavnice</h1>
             <ion-button  slot="end" style="padding-right:15px;" color="light" routerLink="/app/uporedjivanje-proizvoda/selekcija-prodavnica" >+</ion-button>
         </ion-item-divider>
-        <ion-item *ngFor="let prodavnica of nizKlasa1.prodavnice1; ">
+        <ion-item *ngFor="let prodavnica of marketService.selection1; ">
             <div >
                 <h1>{{prodavnica.naziv}}</h1>
                 <p style="margin-top: 0px;">{{prodavnica.lokacija}}</p>
             </div>
-            <ion-button style="width: 30px;" slot="end" (click)="nizKlasa1.ubaciElementUListu(prodavnica)">-</ion-button>
+            <ion-button style="width: 30px;" slot="end" (click)="marketService.izbaciIzSelection1(prodavnica)">-</ion-button>
         </ion-item>
         <ion-item-divider style="height: 100px;" color="primary">
                 <h1>Proizvodi</h1>
                 <ion-button  slot="end" style="padding-right:15px;" color="light" routerLink="/app/uporedjivanje-proizvoda/selekcija-proizvoda">+</ion-button>
         </ion-item-divider>
-        <ion-item style="display: flex; justify-content: space-evenly; align-items: center;height: fit-content;" *ngFor="let proizvod of proizvodiKlasa.sproizvodi;">
+        <ion-item style="display: flex; justify-content: space-evenly; align-items: center;height: fit-content;" *ngFor="let proizvod of proizvodiSearchService.selection1;">
             <ion-thumbnail  style="width: 30%;margin-right: 50px;min-height: fit-content;"  >
                 <img src="https://images.unsplash.com/photo-1589927986089-35812388d1f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Y2Fycm90fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" style="margin-left: 10px;margin-right: 10px;object-fit: contain;" alt="">
             </ion-thumbnail>
             <div style="width:70%;display: flex; flex-direction: column; justify-content: center;align-items: center;"  >
                 <h1 >{{proizvod.naziv}}</h1>
                <div style="display: flex; justify-content: space-evenly; width: 100%;">
-                <ion-button style="margin-bottom: 30px;" routerLink="/app/uporedjivanje-proizvoda/detaljnije-o-proizvodu" (click)="odaberiProizvod(proizvod)" >Detaljnije</ion-button>
-                <ion-button (click)="proizvodiKlasa.izbaciProizvodIzListe(proizvod)" >-</ion-button>
+                <ion-button style="margin-bottom: 30px;" routerLink="/app/uporedjivanje-proizvoda/detaljnije-o-proizvodu" (click)="this.proizvodiSearchService.proizvod=proizvod">Detaljnije</ion-button>
+                <ion-button (click)="proizvodiSearchService.izbaciIzSellection1(proizvod)" >-</ion-button>
                </div>
             </div>
         </ion-item>
         <div style="display:flex;justify-content: center;align-items: center;height: 150px;" >
-            <ion-button (click)="proizvodSaNajmanjomCenom()">Uporedi cene</ion-button>
+            <ion-button (click)="najmanjaCena()" *ngIf="proizvod!==undefined">Uporedi cene</ion-button>
         </div>
         <div>
             <img src={{proizvod.slika}} alt="">

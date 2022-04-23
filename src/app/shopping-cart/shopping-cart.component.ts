@@ -1,6 +1,6 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { Proizvod } from '../Klase/Proizvod';
-import { ProductService } from '../serivsi/proizvodi/product.service';
+import { ProizvodiSearchService } from '../serivsi/proizvodi/proizvodi-search.service';
 import { ShoppingCartService } from '../serivsi/shopping-cart/shopping-cart.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { ShoppingCartService } from '../serivsi/shopping-cart/shopping-cart.serv
 })
 export class ShoppingCartComponent implements OnInit,DoCheck {
 
-  constructor(public shoppingCartService:ShoppingCartService,public productService:ProductService) { }
+  constructor(public shoppingCartService:ShoppingCartService,public proizvodiSeachService:ProizvodiSearchService) { }
   ngDoCheck(): void {
     let novaUkupnaCena:number=0;
     this.shoppingCartService.ShoppingCart.forEach(product => {

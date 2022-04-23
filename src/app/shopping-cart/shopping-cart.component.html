@@ -6,7 +6,7 @@
             <div style="display:flex;flex-direction:column; justify-content: center; align-items:center;width:100%;">
                 <h1 style="color: black;">{{product.naziv}}</h1>
                 <div>
-                    <ion-button routerLink="/app/detaljnije-o-proizvodu" (click)="this.productService.proizvod=product">Detaljnije</ion-button>
+                    <ion-button routerLink="/app/detaljnije-o-proizvodu" (click)="proizvodiSeachService.proizvod=product" >Detaljnije</ion-button>
                     <ion-button style="max-width: fit-content;" (click)="izbaciProizvodIzKorpe(product);">-</ion-button>
                 </div>
             </div>

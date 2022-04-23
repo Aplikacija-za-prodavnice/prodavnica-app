@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { filter } from 'rxjs';
 import {LoginComponent} from '../login/login.component'
+import { AccountService } from '../serivsi/account/account.service';
 
 @Component({
   selector: 'app-register',
@@ -10,8 +11,9 @@ import {LoginComponent} from '../login/login.component'
 })
 export class RegisterComponent implements OnInit {
 
-  public form:FormGroup|undefined;
+  public form?:FormGroup;
   public subscription;
+  private account:AccountService=new AccountService();
   constructor(fb:FormBuilder) {
     this.form=fb.group({
       "firstName":this.firstName,
@@ -21,7 +23,7 @@ export class RegisterComponent implements OnInit {
       "password2":this.password2
     });
     this.subscription =this.form.valueChanges
-    .pipe(filter(event=>(this.form?.valid==true&&this.password1.value===this.password2.value)))
+    .pipe(filter(event=>(this.form?.valid==true&&this.password1.value===this.password2.value&&this.account.provera1(this.form))))
     .subscribe(data=>{console.log(data);document.getElementById("registerButton")?.setAttribute("disabled","false");});
    }
 

@@ -9,7 +9,7 @@
                 <h1>{{product.naziv}}</h1>
                 <p>cena: {{product.cena}} din/{{product.jedinica}} </p>
                 <div>
-                    <ion-button routerLink="/app/detaljnije-o-proizvodu" (click)="this.productService.proizvod=product">Detaljnije</ion-button>
+                    <ion-button routerLink="/app/detaljnije-o-proizvodu" (click)="proizvodiSearchService.proizvod=product" >Detaljnije</ion-button>
                     <ion-button (click)="ubaciProizvodUKorpu(product)">Dodaj u korpu</ion-button>
                 </div>
             </ng-template>
@@ -25,7 +25,7 @@
                 <h1>{{product.naziv}}</h1>
                 <p>cena: {{product.cena}} din/{{product.jedinica}} </p>
                 <div>
-                    <ion-button routerLink="/app/detaljnije-o-proizvodu" (click)="this.productService.proizvod=product">Detaljnije</ion-button>
+                    <ion-button routerLink="/app/detaljnije-o-proizvodu" (click)="proizvodiSearchService.proizvod=product" >Detaljnije</ion-button>
                     <ion-button (click)="ubaciProizvodUKorpu(product)">Dodaj u korpu</ion-button>
                 </div>
             </ng-template>
@@ -34,14 +34,14 @@
     <div style="display:flex;flex-direction:column;align-items: center;height: 80%;background-color: #3880ff;">
         <h1 style="max-width:fit-content; text-align: center;color: white;">Novo</h1>
         <swiper class="swiper" [navigation]="true">
-            <ng-template swiperSlide class="swiper-slide" *ngFor="let product of shoppingCartService.novo">
+            <ng-template swiperSlide class="swiper-slide" *ngFor="let product of shoppingCartService.novo" >
                 <div style="height: 50%; width:70%">
                     <img style="object-fit: contain;" src={{product.slika}} alt="">
                 </div>
                 <h1>{{product.naziv}}</h1>
                 <p>cena: {{product.cena}} din/{{product.jedinica}} </p>
                 <div>
-                    <ion-button routerLink="/app/detaljnije-o-proizvodu" (click)="this.productService.proizvod=product">Detaljnije</ion-button>
+                    <ion-button routerLink="/app/detaljnije-o-proizvodu" (click)="proizvodiSearchService.proizvod=product" >Detaljnije</ion-button>
                     <ion-button (click)="ubaciProizvodUKorpu(product)">Dodaj u korpu</ion-button>
                 </div>
             </ng-template>

@@ -1,7 +1,7 @@
 <ion-content>
-    <ion-searchbar></ion-searchbar>
+    <ion-searchbar #marketSearch id="marketSearch" (click)="pretrazi()"></ion-searchbar>
     <ion-list>
-        <ion-item  class="opcija1" *ngFor="let prodavnica of nizKlasa.prodavnice;" (click)="nizKlasa.izbaciElementIzListe(prodavnica)" >
+        <ion-item  ngClass="marketButton" class="opcija1" *ngFor="let prodavnica of marketService.selection;" (click)="funkcija1(prodavnica)" >
             <ion-thumbnail >
                 <img src={{prodavnica.slika}} alt="">
             </ion-thumbnail>
