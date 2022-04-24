@@ -1,7 +1,7 @@
 import { Component, DoCheck, Input, OnInit } from '@angular/core';
 import { Proizvod } from '../Klase/Proizvod';
-import { MarketService } from '../serivsi/marketService/market.service';
-import { ProizvodiSearchService } from '../serivsi/proizvodi/proizvodi-search.service';
+import { MarketService } from '../servisi/marketService/market.service';
+import { ProizvodiSearchService } from '../servisi/proizvodi/proizvodi-search.service';
 @Component({
   selector: 'app-compare-products',
   templateUrl: './compare-products.component.html',
@@ -9,18 +9,19 @@ import { ProizvodiSearchService } from '../serivsi/proizvodi/proizvodi-search.se
 })
 export class CompareProductsComponent implements OnInit{
 
-  public proizvod:Proizvod=new Proizvod();
+  public proizvod?:Proizvod=undefined;
   constructor(public marketService:MarketService, public proizvodiSearchService:ProizvodiSearchService) {
    }
   ngOnInit(): void {
   }
-  public najmanjaCena():Proizvod{
-    let min=this.proizvodiSearchService.selection1[0].cena;
+  public najmanjaCena():void{
+    if(this.proizvodiSearchService.selection1.length>0){
+      let min=this.proizvodiSearchService.selection1[0].cena;
     this.proizvodiSearchService.selection1.forEach(proizvod => {
-      if(proizvod.cena<min)
+      if(proizvod.cena!==undefined&&min!==undefined&&proizvod.cena<min)
       min=proizvod.cena;
     });
-    this.proizvod=this.proizvodiSearchService.selection1.filter((proizvod:Proizvod)=>proizvod.cena===min) as Proizvod;
-    return this.proizvodiSearchService.selection1.filter((proizvod:Proizvod)=>proizvod.cena===min) as Proizvod;
+    this.proizvod=this.proizvodiSearchService.selection1.filter((proizvod:Proizvod)=>proizvod.cena===min)[0];
+    }
   }
 }

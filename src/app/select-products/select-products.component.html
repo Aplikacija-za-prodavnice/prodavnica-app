@@ -1,7 +1,7 @@
 <ion-content>
     <ion-searchbar  #productSearch id="productSearch" ></ion-searchbar>
     <ion-list>
-        <ion-item  class="opcija1" *ngFor="let proizvod of proizvodiSearchService.selection;" (click)="proizvodiSearchService.ubaciUSelection1(proizvod)" >
+        <ion-item  class="opcija1" *ngFor="let proizvod of proizvodiSearchService.selection.sort();" (click)="proizvodiSearchService.ubaciUSelection1(proizvod)" >
             <ion-thumbnail >
                 <img src={{proizvod.slika}} alt="">
             </ion-thumbnail>

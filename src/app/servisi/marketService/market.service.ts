@@ -6,7 +6,7 @@ import { Prodavnica } from 'src/app/Klase/Markets';
 })
 export class MarketService {
 
-  public prodavnice=new Array(
+  public prodavnice:Array<Prodavnica>=new Array<Prodavnica>(
     new Prodavnica(
       "Lidl supermarket",
       "Lokacija 1",
@@ -45,7 +45,7 @@ export class MarketService {
     }
   }
   selection=this.prodavnice;
-  selection1=new Array();
+  selection1:Array<Prodavnica>=new Array<Prodavnica>();
   public ubaciUSelection1(parametar:Prodavnica){
     this.selection1.push(this.selection.filter(prodavnica=>prodavnica.naziv===parametar.naziv)[0]);
     this.selection=this.selection.filter(prodavnica=>prodavnica.naziv!==parametar.naziv);

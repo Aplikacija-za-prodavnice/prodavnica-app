@@ -1,8 +1,8 @@
 import { Component, OnInit ,ViewEncapsulation, ViewChild} from '@angular/core';
 import SwiperCore, {Navigation} from "swiper";
 import { Proizvod } from '../Klase/Proizvod';
-import { ProizvodiSearchService } from '../serivsi/proizvodi/proizvodi-search.service';
-import { ShoppingCartService } from '../serivsi/shopping-cart/shopping-cart.service';
+import { ProizvodiSearchService } from '../servisi/proizvodi/proizvodi-search.service';
+import { ShoppingCartService } from '../servisi/shopping-cart/shopping-cart.service';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',

@@ -1,8 +1,8 @@
-import { Component,  OnInit} from '@angular/core';
+import { Component,  OnDestroy,  OnInit} from '@angular/core';
 import {  FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { filter} from 'rxjs';
 import { RegisterComponent } from '../register/register.component';
-import { AccountService } from '../serivsi/account/account.service';
+import { AccountService } from '../servisi/account/account.service';
 
 @Component({
   selector: 'app-login',
@@ -39,5 +39,8 @@ export class LoginComponent implements OnInit {
     //Da li se ovako brise Observable ?
     const login=new RegisterComponent(new FormBuilder());
     login.subscription.unsubscribe();
+  }
+  public registracija(){
+    this.subscription.unsubscribe();
   }
 }

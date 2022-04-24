@@ -28,14 +28,14 @@
             </div>
         </ion-item>
         <div style="display:flex;justify-content: center;align-items: center;height: 150px;" >
-            <ion-button (click)="najmanjaCena()" *ngIf="proizvod!==undefined">Uporedi cene</ion-button>
+            <ion-button (click)="najmanjaCena()" >Uporedi cene</ion-button>
         </div>
-        <div>
-            <img src={{proizvod.slika}} alt="">
-            <h1>{{proizvod.naziv}}</h1>
-            <p>{{proizvod.cena}}</p>
-            <p>{{proizvod.kategorija}}</p>
-            <p>{{proizvod.prodavnica}}</p>
-        </div>
+        <ion-card style="display: flex; flex-direction: column; align-items: center; color: black;" *ngIf="proizvod!=undefined&&proizvodiSearchService.selection1.length>0;">
+            <div style="max-width: 80%;margin-top: 20px;margin-bottom: 20px;">
+                <img src={{proizvod?.slika}}  style="object-fit: contain;"alt="">
+            </div>
+            <h1>{{proizvod?.naziv}}</h1>
+            <p style="text-align: center;">{{proizvod?.cena}} din<br>{{proizvod?.kategorija}}<br>{{proizvod?.prodavnica}}</p>
+        </ion-card>
     </ion-list>
 </ion-content>

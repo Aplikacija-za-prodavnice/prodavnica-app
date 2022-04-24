@@ -14,14 +14,20 @@ import { AccountComponent } from './account/account.component';
 import { AccountMainComponent } from './account-main/account-main.component';
 import { MainComponent } from './main/main.component';
 import { SwiperModule } from 'swiper/angular';
-import { ShoppingCartService } from './serivsi/shopping-cart/shopping-cart.service';
+import { ShoppingCartService } from './servisi/shopping-cart/shopping-cart.service';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AccountService } from './serivsi/account/account.service';
-import { ProizvodiSearchService } from './serivsi/proizvodi/proizvodi-search.service';
+import { AccountService } from './servisi/account/account.service';
+import { ProizvodiSearchService } from './servisi/proizvodi/proizvodi-search.service';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { CategoriesSearchComponent } from './categories-search/categories-search.component';
+import { CategorySearchService } from './servisi/category/category-search.service';
+import { CategoryComponent } from './category/category.component';
+import { CategoriesMainComponent } from './categories-main/categories-main.component';
+import { SupportComponent } from './support/support.component';
+import { SearchComponent } from './search/search.component';
 @NgModule({
   declarations: [
-    AppComponent , routingComponents, SelectMarketsComponent, SelectProductsComponent, LoginComponent, RegisterComponent, ApplicationComponent, CompareProductsMainComponent, ShoppingCartComponent, AccountComponent, AccountMainComponent, MainComponent,ProductDetailsComponent
+    AppComponent , routingComponents, SelectMarketsComponent, SelectProductsComponent, LoginComponent, RegisterComponent, ApplicationComponent, CompareProductsMainComponent, ShoppingCartComponent, AccountComponent, AccountMainComponent, MainComponent,ProductDetailsComponent, CategoriesSearchComponent, CategoryComponent, CategoriesMainComponent, SupportComponent, SearchComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +36,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     SwiperModule,
     ReactiveFormsModule
   ],
-  providers: [ShoppingCartService,AccountService,ProizvodiSearchService],
+  providers: [ShoppingCartService,AccountService,ProizvodiSearchService,CategorySearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

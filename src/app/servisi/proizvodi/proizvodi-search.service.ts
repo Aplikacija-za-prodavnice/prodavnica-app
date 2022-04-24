@@ -9,22 +9,10 @@ export class ProizvodiSearchService {
   
   constructor() { }
 
-  public trazi(naziv:any){
-    this.proizvodi.forEach(proizvod=>{
-      if(!this.selection.includes(proizvod)&&!this.selection1.includes(proizvod))
-      this.selection.push(proizvod);
-    });
-    if(naziv==""){
-      this.proizvodi.forEach(proizvod=>{
-        if(!this.selection.includes(proizvod)&&!this.selection1.includes(proizvod))
-        this.selection.push(proizvod);
-      });
-    return;
-    }else{
-        this.selection=this.selection.filter(pr=>pr.naziv?.includes(naziv));
-    }
+  public trazi(tekst:any){
+    this.selection = this.proizvodi.filter(proiz=>!this.selection1.includes(proiz)&&proiz.naziv?.includes(tekst));
   }
-  public proizvodi = new Array(
+  public proizvodi:Array<Proizvod> = new Array(
     new Proizvod(
       "Proizvod 1",
       "Lidl supermarket",
@@ -65,7 +53,7 @@ export class ProizvodiSearchService {
       "https://images.unsplash.com/photo-1589927986089-35812388d1f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Y2Fycm90fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
       "kg"));
       public selection=this.proizvodi;
-      public selection1=new Array();
+      public selection1:Array<Proizvod>=new Array<Proizvod>();
       public ubaciUSelection1(parametar:Proizvod){
         this.selection1.push(parametar);
         this.selection=this.selection.filter(proizvod=>proizvod.naziv!=parametar.naziv);

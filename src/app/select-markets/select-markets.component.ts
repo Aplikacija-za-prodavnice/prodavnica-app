@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild} from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { Prodavnica } from '../Klase/Markets';
-import { MarketService } from '../serivsi/marketService/market.service';
+import { MarketService } from '../servisi/marketService/market.service';
 @Component({
   selector: 'app-select-markets',
   templateUrl: './select-markets.component.html',
@@ -17,7 +17,6 @@ export class SelectMarketsComponent implements OnInit  {
     document.getElementById("marketSearch")?.addEventListener('input',()=>{observer.next(this.ionSearchbar.value.toString());});
   });
   ngOnInit(): void {
-    
   }
   funkcija1(parametar:Prodavnica):void{
     this.subscription.unsubscribe();

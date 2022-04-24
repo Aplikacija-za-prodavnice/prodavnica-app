@@ -1,7 +1,7 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { Proizvod } from '../Klase/Proizvod';
-import { ProizvodiSearchService } from '../serivsi/proizvodi/proizvodi-search.service';
-import { ShoppingCartService } from '../serivsi/shopping-cart/shopping-cart.service';
+import { ProizvodiSearchService } from '../servisi/proizvodi/proizvodi-search.service';
+import { ShoppingCartService } from '../servisi/shopping-cart/shopping-cart.service';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -14,7 +14,7 @@ export class ShoppingCartComponent implements OnInit,DoCheck {
   ngDoCheck(): void {
     let novaUkupnaCena:number=0;
     this.shoppingCartService.ShoppingCart.forEach(product => {
-      novaUkupnaCena+=product.cena;
+      if(product.cena!==undefined)novaUkupnaCena+=product.cena;
     });
     if(this.ukupnaCena!==novaUkupnaCena){
       this.ukupnaCena=novaUkupnaCena;

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProizvodiSearchService } from '../serivsi/proizvodi/proizvodi-search.service';
+import { ProizvodiSearchService } from '../servisi/proizvodi/proizvodi-search.service';
 
 @Component({
   selector: 'app-product-details',

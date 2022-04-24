@@ -15,7 +15,7 @@ export class AccountService {
     this.account.password=parametar?.controls[3].value;
     console.log(this.account);
   }
-  accounts:[Account]=[
+  accounts:Array<Account>=[
     new Account(
     "Stefke",
     "Velja",

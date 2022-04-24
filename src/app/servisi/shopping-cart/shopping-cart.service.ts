@@ -7,7 +7,7 @@ export class ShoppingCartService {
 
   constructor() { }
 
-  public ShoppingCart = new Array();
+  public ShoppingCart:Array<Proizvod> = new Array<Proizvod>();
 
   public ubaciProizvodUKorpu(proizvod2:Proizvod){
     if(proizvod2!==null)
@@ -22,7 +22,7 @@ export class ShoppingCartService {
     else
     console.error("Proizvod nije inicijalizovan");
   }
-  public omiljeno = new Array(
+  public omiljeno:Array<Proizvod> = new Array<Proizvod>(
     new Proizvod(
       // naziv:
       "Proizvod 1",
@@ -94,7 +94,7 @@ export class ShoppingCartService {
       "kg"
   )
     );
-    public snizenja = new Array(
+    public snizenja:Array<Proizvod> = new Array<Proizvod>(
       new Proizvod(
         // naziv:
         "Proizvod 6",
@@ -166,7 +166,7 @@ export class ShoppingCartService {
         "kg"
     )
       );
-      public novo = new Array(
+      public novo:Array<Proizvod> = new Array<Proizvod>(
         new Proizvod(
           // naziv:
           "Proizvod 11",

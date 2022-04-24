@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ProizvodiSearchService } from '../serivsi/proizvodi/proizvodi-search.service';
+import { ProizvodiSearchService } from '../servisi/proizvodi/proizvodi-search.service';
 
 @Component({
   selector: 'app-select-products',
