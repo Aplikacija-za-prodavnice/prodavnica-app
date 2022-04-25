@@ -10,8 +10,10 @@ import { CompareProductsMainComponent } from './compare-products-main/compare-pr
 import { CompareProductsComponent } from './compare-products/compare-products.component';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
+import { MarketSearchComponent } from './market-search/market-search.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { RegisterComponent } from './register/register.component';
+import { SearchMainComponent } from './search-main/search-main.component';
 import { SearchComponent } from './search/search.component';
 import { SelectMarketsComponent } from './select-markets/select-markets.component';
 import { SelectProductsComponent } from './select-products/select-products.component';
@@ -24,7 +26,10 @@ const routes: Routes = [
   {path:'register',component:RegisterComponent, pathMatch:"full"},
   {path:'app', component:ApplicationComponent, children:[
     {path:'',component:MainComponent,pathMatch:"full"},
-    {path:'pretrazivanje',component:SearchComponent,pathMatch:"full"},
+    {path:'pretrazivanje',component:SearchMainComponent,children:[
+      {path:'', component:SearchComponent, pathMatch:"full"},
+      {path:'odabir-prodavnica',component:MarketSearchComponent,pathMatch:"full"}
+    ]},
     {path:'podrska',component:SupportComponent,pathMatch:"full"},
     {path:'kategorije',component:CategoriesMainComponent, children:[
       {path:'',component:CategoriesSearchComponent,pathMatch:"full"},

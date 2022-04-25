@@ -25,9 +25,11 @@ import { CategoryComponent } from './category/category.component';
 import { CategoriesMainComponent } from './categories-main/categories-main.component';
 import { SupportComponent } from './support/support.component';
 import { SearchComponent } from './search/search.component';
+import { MarketSearchComponent } from './market-search/market-search.component';
+import { SearchMainComponent } from './search-main/search-main.component';
 @NgModule({
   declarations: [
-    AppComponent , routingComponents, SelectMarketsComponent, SelectProductsComponent, LoginComponent, RegisterComponent, ApplicationComponent, CompareProductsMainComponent, ShoppingCartComponent, AccountComponent, AccountMainComponent, MainComponent,ProductDetailsComponent, CategoriesSearchComponent, CategoryComponent, CategoriesMainComponent, SupportComponent, SearchComponent,
+    AppComponent , routingComponents, SelectMarketsComponent, SelectProductsComponent, LoginComponent, RegisterComponent, ApplicationComponent, CompareProductsMainComponent, ShoppingCartComponent, AccountComponent, AccountMainComponent, MainComponent,ProductDetailsComponent, CategoriesSearchComponent, CategoryComponent, CategoriesMainComponent, SupportComponent, SearchComponent, MarketSearchComponent, SearchMainComponent,
   ],
   imports: [
     BrowserModule,
