@@ -1,11 +1,23 @@
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import {Account} from "../../Klase/Account";
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
-
+  private firebaseConfig={
+    apiKey: "AIzaSyA0ab-Rjuxkbbt2oYn9eH590380Vfg8Z48",
+    authDomain: "angular-aplikacija.firebaseapp.com",
+    projectId: "angular-aplikacija",
+    storageBucket: "angular-aplikacija.appspot.com",
+    messagingSenderId: "599828228898",
+    appId: "1:599828228898:web:6ade69a27470c0ba0dd37b"
+  }
+  app = initializeApp(this.firebaseConfig);
+  auth = getAuth(this.app);
   account:Account=new Account();
   constructor() { }
   public registracija(parametar?:FormGroup){
