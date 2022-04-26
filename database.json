@@ -1,0 +1,12 @@
+{
+  "rules": {
+    "podaci":{
+      "podatak":{
+        ".read":true,
+        ".write":true
+      },
+      ".read":true,
+      ".write":false
+    }
+  }
+}

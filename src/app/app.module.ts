@@ -27,6 +27,10 @@ import { SupportComponent } from './support/support.component';
 import { SearchComponent } from './search/search.component';
 import { MarketSearchComponent } from './market-search/market-search.component';
 import { SearchMainComponent } from './search-main/search-main.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideDatabase,getDatabase } from '@angular/fire/database';
 @NgModule({
   declarations: [
     AppComponent , routingComponents, SelectMarketsComponent, SelectProductsComponent, LoginComponent, RegisterComponent, ApplicationComponent, CompareProductsMainComponent, ShoppingCartComponent, AccountComponent, AccountMainComponent, MainComponent,ProductDetailsComponent, CategoriesSearchComponent, CategoryComponent, CategoriesMainComponent, SupportComponent, SearchComponent, MarketSearchComponent, SearchMainComponent,
@@ -36,7 +40,10 @@ import { SearchMainComponent } from './search-main/search-main.component';
     AppRoutingModule,
     IonicModule.forRoot(),
     SwiperModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideDatabase(() => getDatabase())
   ],
   providers: [ShoppingCartService,AccountService,ProizvodiSearchService,CategorySearchService],
   bootstrap: [AppComponent]

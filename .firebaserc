@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "angular-aplikcaija"
+  },
+  "targets": {
+    "angular-aplikcaija": {
+      "hosting": {
+        "prvi_projekat": [
+          "angular-aplikcaija"
+        ]
+      }
+    }
+  }
+}
