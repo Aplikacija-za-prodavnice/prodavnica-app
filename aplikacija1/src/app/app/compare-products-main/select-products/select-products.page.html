@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="first"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Odaberite proizvode</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar  #productSearch id="productSearch" ></ion-searchbar>
+  <ion-list>
+      <ion-item  class="opcija1" *ngFor="let proizvod of proizvodiSearchService.selection.sort();" (click)="proizvodiSearchService.ubaciUSelection1(proizvod)" >
+          <ion-thumbnail >
+              <img src={{proizvod.slika}} alt="">
+          </ion-thumbnail>
+          <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;width: 100%;">
+              <h1>{{proizvod.naziv}}</h1>
+              <p style="margin-top: 0px; ">{{proizvod.prodavnica}}</p>
+          </div>
+      </ion-item>
+      
+  </ion-list>
+</ion-content>

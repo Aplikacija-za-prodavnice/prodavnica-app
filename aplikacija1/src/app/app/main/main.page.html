@@ -1,0 +1,63 @@
+<ion-header>
+    <ion-toolbar style="display: flex;">
+      <ion-buttons slot="start" color="dark">
+          <ion-menu-toggle>
+            <ion-menu-button menu="first" ></ion-menu-button>
+          </ion-menu-toggle>
+        </ion-buttons>
+      <ion-title>Pregled proizvoda</ion-title>
+    </ion-toolbar>
+  </ion-header>
+<ion-content style="display: flex;flex-direction:column; align-items: center;">
+  <div style="display:flex;flex-direction:column;align-items: center;height: 80%;background-color: #3880ff;">
+      <h1 style="max-width:fit-content;text-align: center;color: white;">Omiljeni proizvodi</h1>
+      <swiper class="swiper" [navigation]="true">
+          <ng-template swiperSlide class="swiper-slide" *ngFor="let product of this.shoppingCartService.omiljeno;let i =index;">
+              <div style="height: 50%; width:70%">
+                  <img style="object-fit: contain;" src={{product.slika}} alt="">
+              </div>
+              <h1>{{product.naziv}}</h1>
+              <p>cena: {{product.cena}} din/{{product.jedinica}} </p>
+              <div>
+                  <ion-button routerLink="/app/detaljnije-o-proizvodu" (click)="proizvodiSearchService.proizvod=product" >Detaljnije</ion-button>
+                  <ion-button (click)="ubaciProizvodUKorpu(product)">Dodaj u korpu</ion-button>
+              </div>
+          </ng-template>
+      </swiper>
+  </div>
+  <div style="display:flex;flex-direction:column;align-items: center;height: 80%;background-color:#3880ff;">
+      <h1 style="max-width:fit-content; text-align: center;color: white;">Sniženja u željenim prodavnicama</h1>
+      <swiper class="swiper" [navigation]="true">
+          <ng-template swiperSlide class="swiper-slide" *ngFor="let product of shoppingCartService.snizenja">
+              <div style="height: 50%; width:70%">
+                  <img style="object-fit: contain;" src={{product.slika}} alt="">
+              </div>
+              <h1>{{product.naziv}}</h1>
+              <p>cena: {{product.cena}} din/{{product.jedinica}} </p>
+              <div>
+                  <ion-button routerLink="/app/detaljnije-o-proizvodu" (click)="proizvodiSearchService.proizvod=product" >Detaljnije</ion-button>
+                  <ion-button (click)="ubaciProizvodUKorpu(product)">Dodaj u korpu</ion-button>
+              </div>
+          </ng-template>
+      </swiper>
+  </div>
+  <div style="display:flex;flex-direction:column;align-items: center;height: 80%;background-color: #3880ff;">
+      <h1 style="max-width:fit-content; text-align: center;color: white;">Novo</h1>
+      <swiper class="swiper" [navigation]="true">
+          <ng-template swiperSlide class="swiper-slide" *ngFor="let product of shoppingCartService.novo" >
+              <div style="height: 50%; width:70%">
+                  <img style="object-fit: contain;" src={{product.slika}} alt="">
+              </div>
+              <h1>{{product.naziv}}</h1>
+              <p>cena: {{product.cena}} din/{{product.jedinica}} </p>
+              <div>
+                  <ion-button routerLink="/app/detaljnije-o-proizvodu" (click)="proizvodiSearchService.proizvod=product" >Detaljnije</ion-button>
+                  <ion-button (click)="ubaciProizvodUKorpu(product)">Dodaj u korpu</ion-button>
+              </div>
+          </ng-template>
+      </swiper>
+  </div>
+  <div style="display: flex; align-items: center;justify-content: center; margin-top: 20px; margin-bottom: 20px;">
+      <ion-button routerLink="/app/kategorije">Ostale kategorije</ion-button>
+  </div>
+</ion-content>

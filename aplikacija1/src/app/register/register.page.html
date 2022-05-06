@@ -1,0 +1,34 @@
+<ion-content>
+  <div id="registerPage">
+      <form id="registerForm">
+          <h2 style="text-align:center;">Register</h2>
+          <ion-list style="border-bottom-left-radius:15px;border-bottom-right-radius:15px;display: flex;flex-direction: column;align-items: center;">
+              <ion-item class="option">
+                  <ion-label position="floating">First Name</ion-label>
+                  <ion-input [formControl]="firstName" ></ion-input>
+              </ion-item>
+              <ion-item class="option">
+                  <ion-label position="floating">Last name</ion-label>
+                  <ion-input [formControl]="lastName" ></ion-input>
+              </ion-item>
+              <ion-item class="option">
+                  <ion-label position="floating">e-mail</ion-label>
+                  <ion-input [formControl]="email" ></ion-input>
+              </ion-item>
+              <ion-item class="option">
+                  <ion-label position="floating">password</ion-label>
+                  <ion-input type="password" [formControl]="password1" ></ion-input>
+              </ion-item>
+              <ion-item class="option">
+                  <ion-label position="floating">confirm password</ion-label>
+                  <ion-input type="password" [formControl]="password2" ></ion-input>
+              </ion-item>
+              <ion-button (click)="registracija()" routerLink="/app" id="registerButton" disabled="true">Registrujte se</ion-button>
+          </ion-list>
+          <div style="display: flex;flex-direction: column;align-items: center;margin-top: 20px;margin-bottom: 10px;">
+              <ion-label style="margin-bottom: 10px;">Imate nalog ?</ion-label>
+              <ion-button routerLink="/login" >Nazad</ion-button>
+          </div>
+      </form>
+  </div>
+</ion-content>
