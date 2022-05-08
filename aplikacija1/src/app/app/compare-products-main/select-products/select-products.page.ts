@@ -17,6 +17,7 @@ export class SelectProductsPage implements OnInit {
   @ViewChild('productSearch') ionSearchbar:any;
   ngOnInit(): void {
     this.observable.subscribe((value)=>{this.proizvodiSearchService.trazi(value)});
+    console.log(this.proizvodiSearchService.selection[0]);
   }
 
 }

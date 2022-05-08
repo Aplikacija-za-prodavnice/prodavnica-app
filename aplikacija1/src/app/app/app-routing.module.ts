@@ -31,6 +31,10 @@ const routes: Routes = [
       {
         path: 'podrska',
         loadChildren: () => import('./support/support.module').then( m => m.SupportPageModule)
+      },
+      {
+        path:'detaljnije-o-proizvodu',
+        loadChildren: ()=>import('./product-details/product-details.module').then(m=>m.ProductDetailsPageModule)
       }
     ]
   }

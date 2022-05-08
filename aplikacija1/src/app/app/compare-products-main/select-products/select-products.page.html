@@ -12,7 +12,7 @@
   <ion-list>
       <ion-item  class="opcija1" *ngFor="let proizvod of proizvodiSearchService.selection.sort();" (click)="proizvodiSearchService.ubaciUSelection1(proizvod)" >
           <ion-thumbnail >
-              <img src={{proizvod.slika}} alt="">
+              <img src={{proizvod.slika}} alt="Slika">
           </ion-thumbnail>
           <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;width: 100%;">
               <h1>{{proizvod.naziv}}</h1>

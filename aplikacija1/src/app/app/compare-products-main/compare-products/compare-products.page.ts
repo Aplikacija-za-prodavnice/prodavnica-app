@@ -14,6 +14,7 @@ export class CompareProductsPage implements OnInit {
   constructor(public marketService:MarketService, public proizvodiSearchService:ProizvodiSearchService) {
   }
  ngOnInit(): void {
+  //  this.proizvodiSearchService.uzmiProizvode();
  }
  public najmanjaCena():void{
    if(this.proizvodiSearchService.selection1.length>0){

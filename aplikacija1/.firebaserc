@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angular-aplikacija2": {
+      "hosting": {
+        "app": [
+          "angular-aplikacija2"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angular-aplikacija2"
+  }
+}
