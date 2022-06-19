@@ -1,8 +1,8 @@
+import { DecimalPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { Proizvod } from 'src/app/klase/proizvod/proizvod';
-import { ProizvodiSearchService } from 'src/app/servisi/proizvodi/proizvodi-search.service';
-import { ShoppingCartService } from 'src/app/servisi/shoppingCart/shopping-cart.service';
+import { MarketsAndProductsService } from 'src/app/servisi/MarketsAndProducts/markets-and-products.service';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -11,21 +11,17 @@ import { ShoppingCartService } from 'src/app/servisi/shoppingCart/shopping-cart.
 })
 export class ShoppingCartPage implements OnInit {
 
-  constructor(public shoppingCartService:ShoppingCartService,public proizvodiSeachService:ProizvodiSearchService) { }
+  constructor(public marketsAndProductsService:MarketsAndProductsService) { }
   ngDoCheck(): void {
-    let novaUkupnaCena:number=0;
-    this.shoppingCartService.ShoppingCart.forEach(product => {
-      if(product.cena!==undefined)novaUkupnaCena+=product.cena;
+    let novaUkupnaCena:number=0.0;
+    this.marketsAndProductsService.korpa.forEach(product => {
+      novaUkupnaCena+=product.proizvod.cena*product.cena;
     });
     if(this.ukupnaCena!==novaUkupnaCena){
       this.ukupnaCena=novaUkupnaCena;
     }
   }
-  public ukupnaCena:number=0;
+  public ukupnaCena:number=0.0;
   ngOnInit(): void {}
-  public izbaciProizvodIzKorpe(product:Proizvod){
-    this.shoppingCartService.izbaciProizvodIzKorpe(product);
-    console.log(this.shoppingCartService.ShoppingCart);
-  }
 
 }

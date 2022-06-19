@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Kategorije</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="primary" (click)="onClose()" >Back</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let kategorija of marketsAndProductsService.kategorije">
+      <ion-checkbox slot="start" #kat *ngIf="marketsAndProductsService.proizvodIzmeni.kategorije.includes(kategorija.id)" checked="true" name={{kategorija.id}}></ion-checkbox>
+      <ion-checkbox slot="start" #kat *ngIf="!marketsAndProductsService.proizvodIzmeni.kategorije.includes(kategorija.id)" checked="false" name={{kategorija.id}}></ion-checkbox>
+      <div style="display: flex;flex-direction:column;align-items: center;margin-left: auto;margin-right: auto;height: 80%;justify-content: space-evenly;" >
+        <ion-text >{{kategorija.naziv}}</ion-text>
+      </div>
+      
+    </ion-item>
+  </ion-list>
+</ion-content>

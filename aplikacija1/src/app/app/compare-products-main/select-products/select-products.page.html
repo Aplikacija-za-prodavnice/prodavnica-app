@@ -10,13 +10,12 @@
 <ion-content>
   <ion-searchbar  #productSearch id="productSearch" ></ion-searchbar>
   <ion-list>
-      <ion-item  class="opcija1" *ngFor="let proizvod of proizvodiSearchService.selection.sort();" (click)="proizvodiSearchService.ubaciUSelection1(proizvod)" >
+      <ion-item  class="opcija1" *ngFor="let proizvod of marketsAndProductsServise.proizvodi1" (click)="marketsAndProductsServise.ubaciUProizvodi2(proizvod)" >
           <ion-thumbnail >
               <img src={{proizvod.slika}} alt="Slika">
           </ion-thumbnail>
           <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;width: 100%;">
               <h1>{{proizvod.naziv}}</h1>
-              <p style="margin-top: 0px; ">{{proizvod.prodavnica}}</p>
           </div>
       </ion-item>
       

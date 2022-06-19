@@ -1,0 +1,18 @@
+<ion-content>
+  <div style="display:flex;flex-direction:column;justify-content:center;height:100vh;background-image: url('https://images.unsplash.com/photo-1654884779033-84ec90f6f790?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDIxfDZzTVZqVExTa2VRfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60');background-size:contain;background-repeat: no-repeat;background-position:center;background-color: bisque;">
+    <form id="loginForm" style="border: 0.5px solid rgba(0,0,0,0.3);background-color: white;border-radius: 15px; display: flex; flex-direction: column; align-items: center;max-width: 500px;margin-left: auto;margin-right: auto;">
+      <h2 style="text-align:center;" routerLink="/login">Log in</h2>
+      <ion-list style="border-bottom-left-radius:15px;border-bottom-right-radius:15px;display: flex;flex-direction: column;">
+          <ion-item style="margin-inline: 20px;">
+              <ion-label position="floating" style="text-align: left;">Admin name</ion-label>
+              <ion-input ></ion-input>
+          </ion-item>
+          <ion-item style="margin-inline: 20px;margin-bottom: 15px;">
+              <ion-label position="floating" style="text-align: left;">password</ion-label>
+              <ion-input type="password"  ></ion-input>
+          </ion-item>
+          <ion-button  disabled="true" routerLink="/app" id="loginButton" style="margin-left: auto;margin-right: auto;">Ulogujte se</ion-button>
+      </ion-list>
+  </form>
+  </div>
+</ion-content>

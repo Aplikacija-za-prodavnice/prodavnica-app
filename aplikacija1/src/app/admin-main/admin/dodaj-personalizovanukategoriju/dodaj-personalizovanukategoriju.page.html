@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="text-align: center;">Dodavanje <br> personalizovane <br> kategorije</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="primary" routerLink="/admin/personalizovane-kategorije">Back</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="display: flex;align-items:center;justify-content:center;height: 85vh;">
+    <ion-card style="color:black;text-align: center;">
+      <ion-grid>
+        <ion-row>
+          <ion-col style="display: flex;align-items:center;justify-content:center;">
+            <ion-text>Naziv per. kategorije:</ion-text>
+          </ion-col>
+          <ion-col style="display: flex;align-items:center;justify-content:center;">
+            <ion-input type="text" placeholder="naziv" [(ngModel)]="marketsAndProductsService.personalizovanaKategorijaIzmeni.naziv"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col style="display: flex;align-items:center;justify-content:center;">
+            <ion-button (click)="dodajPersonalizovano()">Sačuvaj izmenu</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </div>
+</ion-content>

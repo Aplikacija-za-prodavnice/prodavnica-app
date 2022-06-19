@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { Prodavnica } from 'src/app/klase/Prodavnica/prodavnica';
-import { MarketService } from 'src/app/servisi/market/market.service';
+import { MarketsAndProductsService } from 'src/app/servisi/MarketsAndProducts/markets-and-products.service';
 
 @Component({
   selector: 'app-select-markets',
@@ -10,7 +10,7 @@ import { MarketService } from 'src/app/servisi/market/market.service';
 })
 export class SelectMarketsPage implements OnInit {
 
-  constructor(public marketService:MarketService) { 
+  constructor(public marketsAndProductsService:MarketsAndProductsService) { 
   }
   private subscription=new Subscription();
    @ViewChild('marketSearch') ionSearchbar:any;
@@ -21,10 +21,10 @@ export class SelectMarketsPage implements OnInit {
   }
   funkcija1(parametar:Prodavnica):void{
     this.subscription.unsubscribe();
-    this.marketService.ubaciUSelection1(parametar);
+    this.marketsAndProductsService.ubaciUProdavnice2(parametar);
   }
   pretrazi(){
-    this.subscription=this.observable.subscribe((value)=>{this.marketService.potrazi(value)});
+    this.subscription=this.observable.subscribe((value)=>{this.marketsAndProductsService.potrazi(value)});
   }
 
 }

@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Prodavnice</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="primary" routerLink="/admin/izmeni/:id">Back</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let prodavnica of marketsAndProductsService.prodavnice">
+      <ion-thumbnail>
+        <img src={{prodavnica.slika}}/>
+      </ion-thumbnail>
+      <div style="display: flex;flex-direction:column;align-items: center;margin-left: auto;margin-right: auto;height: 80%;justify-content: space-evenly;">
+        <ion-text >{{prodavnica.naziv}}</ion-text>
+        <ion-text>{{prodavnica.lokacija}}</ion-text>
+      </div>
+      <ion-checkbox slot="end"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar style="display: flex;">
+    <ion-buttons slot="start" color="dark">
+        <ion-menu-toggle>
+          <ion-menu-button menu="second" ></ion-menu-button>
+        </ion-menu-toggle>
+      </ion-buttons>
+    <ion-title>Kategorije</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-segment style="display: flex;align-items:center;justify-content: space-evenly; margin-top: 20px;margin-bottom: 20px;">
+    <ion-text>Dodaj novu kategoriju</ion-text>
+    <ion-button routerLink="/admin/dodaj-kategoriju">+</ion-button>
+  </ion-segment>
+  <ion-card color="black">
+    <ion-grid>
+      <ion-header>
+        <ion-row>
+          <ion-col><h3 style="text-align: center;">Naziv kategorije</h3></ion-col>
+          <ion-col><h3 style="text-align: center;">Promeni i Obrisi</h3></ion-col>
+        </ion-row>
+      </ion-header>
+      <ion-row style="border-bottom: 0.5px solid rgba(0,0,0,0.3); background-color: rgb(255, 196, 196);" *ngFor="let kategorija of  marketsAndProductsService.kategorije" >
+        <ion-col routerLink="/admin/kategorija/{{kategorija.id}}"   class="ion-text-center ion-justify-content-center" style="display:flex;flex-direction:column;"><ion-text style="font-size:18px ;" >{{kategorija.naziv}}</ion-text></ion-col>
+        <ion-col style="display: flex; justify-content:space-evenly;">
+          <ion-button routerLink="/admin/izmeni-kategoriju/{{kategorija.id}}"><ion-icon name="create"></ion-icon></ion-button>
+          <ion-button (click)="izbrisiKategoriju(kategorija)"><ion-icon name="trash"></ion-icon></ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</ion-content>

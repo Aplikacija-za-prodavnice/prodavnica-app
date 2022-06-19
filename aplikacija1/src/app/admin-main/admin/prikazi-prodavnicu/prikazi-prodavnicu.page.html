@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar style="display: flex;">
+    <ion-title>Prikaz prodavnice</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="primary" routerLink="/admin/prodavnice">Back</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="display: flex;align-items: center;justify-content: center;height: 90vh;">
+    <ion-card style="color: black;">
+      <ion-grid>
+        <ion-row>
+          <ion-col style="display: flex;align-items: center;justify-content: center;">
+            <div style="object-fit: contain;max-height: 190px;max-width:190px;display: flex;align-items: center;justify-content: center;">
+              <img src={{prodavnica.slika}} style="size: 100% 100%;"/>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row style="text-align: center;height: 80px;">
+          <ion-col style="display: flex;justify-content:center;align-items: center;">
+            <ion-text>ID prodavnice:</ion-text>
+          </ion-col>
+          <ion-col style="display: flex;justify-content:center;align-items: center;">
+            <ion-text>{{prodavnica.id}}</ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row style="text-align: center;height: 80px;">
+          <ion-col style="display: flex;justify-content:center;align-items: center;">
+            <ion-text>Naziv prodavnice:</ion-text>
+          </ion-col>
+          <ion-col style="display: flex;justify-content:center;align-items: center;">
+            <ion-text>{{prodavnica.naziv}}</ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row style="text-align: center;height: 80px;">
+          <ion-col style="display: flex;justify-content:center;align-items: center;">
+            <ion-text>Lokacija na kojoj se prodavnica nalazi:</ion-text>
+          </ion-col>
+          <ion-col style="display: flex;justify-content:center;align-items: center;">
+            <ion-text>{{prodavnica.lokacija}}</ion-text>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </div>
+</ion-content>

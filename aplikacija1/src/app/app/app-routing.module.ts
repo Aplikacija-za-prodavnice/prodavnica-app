@@ -24,10 +24,10 @@ const routes: Routes = [
         path:'account',
         loadChildren:()=>import('./account-main/account-main.module').then(m=>m.AccountMainPageModule)
       },
-      {
-        path: 'pretrazivanje',
-        loadChildren: () => import('./search/search.module').then( m => m.SearchPageModule)
-      },
+      // {
+      //   path: 'pretrazivanje',
+      //   loadChildren: () => import('./search/search.module').then( m => m.SearchPageModule)
+      // },
       {
         path: 'podrska',
         loadChildren: () => import('./support/support.module').then( m => m.SupportPageModule)
@@ -35,6 +35,10 @@ const routes: Routes = [
       {
         path:'detaljnije-o-proizvodu',
         loadChildren: ()=>import('./product-details/product-details.module').then(m=>m.ProductDetailsPageModule)
+      },
+      {
+        path: 'pretrazivanje',
+        loadChildren: () => import('./search-main/search-main.module').then( m => m.SearchMainPageModule)
       }
     ]
   }

@@ -1,8 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Proizvod } from 'src/app/klase/proizvod/proizvod';
 import { AccountService } from 'src/app/servisi/account/account.service';
-import { ProizvodiSearchService } from 'src/app/servisi/proizvodi/proizvodi-search.service';
-import { ShoppingCartService } from 'src/app/servisi/shoppingCart/shopping-cart.service';
+import { MarketsAndProductsService } from 'src/app/servisi/MarketsAndProducts/markets-and-products.service';
 import SwiperCore, {Navigation} from "swiper";
 
 @Component({
@@ -16,12 +15,9 @@ export class MainPage implements OnInit {
   public swiperConfig = {
     Pagination:true,
   };
-  constructor(public shoppingCartService:ShoppingCartService,public proizvodiSearchService:ProizvodiSearchService,public account:AccountService) { }
+  constructor(public marketsAndProductsService:MarketsAndProductsService,public account:AccountService) { }
 
   ngOnInit(): void {
     SwiperCore.use([Navigation]);
-  }
-  ubaciProizvodUKorpu(product:Proizvod){
-    this.shoppingCartService.ubaciProizvodUKorpu(product);
   }
 }

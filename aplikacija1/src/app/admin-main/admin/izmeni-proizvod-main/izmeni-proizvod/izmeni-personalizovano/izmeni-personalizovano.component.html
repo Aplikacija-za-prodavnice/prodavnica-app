@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Personalizovane kategorije</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="primary" (click)="onClose()" >Back</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let personalizovanaKategorija of marketsAndProductsService.personalizovaneKategorije">
+      <ion-checkbox slot="end" #per *ngIf="marketsAndProductsService.proizvodIzmeni.personalizovano.includes(personalizovanaKategorija.id)" checked="true" name={{personalizovanaKategorija.id}}></ion-checkbox>
+      <ion-checkbox slot="end" #per *ngIf="!marketsAndProductsService.proizvodIzmeni.personalizovano.includes(personalizovanaKategorija.id)" checked="false" name={{personalizovanaKategorija.id}}></ion-checkbox>
+      <div style="display: flex;flex-direction:column;align-items: center;margin-left: auto;margin-right: auto;height: 80%;justify-content: space-evenly;">
+        <ion-text >{{personalizovanaKategorija.naziv}}</ion-text>
+      </div>
+      
+    </ion-item>
+  </ion-list>
+</ion-content>

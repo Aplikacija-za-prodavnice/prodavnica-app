@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar style="display: flex;">
+    <ion-buttons slot="start" color="dark">
+        <ion-menu-toggle>
+          <ion-menu-button menu="second" ></ion-menu-button>
+        </ion-menu-toggle>
+      </ion-buttons>
+    <ion-title>Proizvodi</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-segment style="display: flex;align-items:center;justify-content: space-evenly; margin-top: 20px;margin-bottom: 20px;">
+    <ion-text>Dodaj novi proizvod</ion-text>
+    <ion-button routerLink="/admin/noviproizvod">+</ion-button>
+  </ion-segment>
+  <ion-card color="black">
+    <ion-grid>
+      <ion-header>
+        <ion-row>
+          <ion-col><h3 style="text-align: center;">Naziv proizvoda</h3></ion-col>
+          <ion-col><h3 style="text-align: center;">Promeni i Obrisi</h3></ion-col>
+        </ion-row>
+      </ion-header>
+      <ion-row style="border-bottom: 0.5px solid rgba(0,0,0,0.3); background-color: rgb(174, 235, 255);" *ngFor="let proizvod of marketsAndProductsService.proizvodi;index as i" >
+        <ion-col class="ion-text-center ion-justify-content-center" style="display:flex;flex-direction:column;" routerLink="/admin/proizvod/{{i}}"><ion-text style="font-size:18px ;" >{{proizvod.naziv}}</ion-text></ion-col>
+        <ion-col style="display: flex; justify-content:space-evenly;">
+          <ion-button routerLink="/admin/izmeni/{{i}}"><ion-icon name="create"></ion-icon></ion-button>
+          <ion-button (click)="obrisiProizvod(proizvod)" ><ion-icon name="trash"></ion-icon></ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Pregled proizvoda</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="primary" routerLink="/admin/proizvodi">Back</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div style="display: flex;align-items:center;justify-content:center;height:90vh;width:100%;">
+    <ion-card style="color:black;height: 80%;">
+      <ion-grid style="text-align:center;height: 100%;">
+        <ion-row>
+          <ion-col>Naziv:</ion-col>
+          <ion-col>{{proizvod.naziv}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>Slika:</ion-col>
+          <ion-col style="display:flex ;justify-content:center;">
+            <ion-thumbnail >
+              <img src={{proizvod.slika}}/>
+            </ion-thumbnail>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>Cena po jedinici:</ion-col>
+          <ion-col>{{proizvod.cena}}/{{proizvod.jedinica}}</ion-col>
+        </ion-row>
+        <ion-row style="background-color:#3880ff;color:white;">
+          <ion-col>Prodavnica u kojoj se nalazi:</ion-col>
+          <ion-col>Naziv prodavnice:</ion-col>
+        </ion-row>
+        <ion-row *ngFor="let prodavnica of marketsAndProductsService.vratiProdavniceZaProizvod(proizvod.UProdavnici)">
+          <ion-col style="display:flex ;justify-content:center;">
+            <ion-thumbnail >
+              <img src={{prodavnica.slika}}/>
+            </ion-thumbnail>
+          </ion-col>
+          <ion-col>{{prodavnica.naziv}}</ion-col>
+        </ion-row>
+        <ion-row style="background-color:#3880ff;color:white;">
+          <ion-col>Kategorija proizvoda:</ion-col>
+          <ion-col>Naziv kategorije:</ion-col>
+        </ion-row>
+        <ion-row *ngFor="let kategorija of marketsAndProductsService.vratiKategorijeZaProizvod(proizvod.kategorije);index as i">
+          <ion-col>{{i+1}}. kategorija:</ion-col>
+          <ion-col>{{kategorija.naziv}}</ion-col>
+        </ion-row>
+        <ion-row style="background-color:#3880ff;color:white;">
+          <ion-col>Personalizovane kategorije</ion-col>
+          <ion-col>Vrednost :</ion-col>
+        </ion-row>
+        <ion-row *ngFor="let per of marketsAndProductsService.vratiPersonalizovaneKategorijeZaProizvod(proizvod.personalizovano)">
+          <ion-col>{{per.id}}. kategorija</ion-col>
+          <ion-col>{{per.naziv}}</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </div>
+</ion-content>

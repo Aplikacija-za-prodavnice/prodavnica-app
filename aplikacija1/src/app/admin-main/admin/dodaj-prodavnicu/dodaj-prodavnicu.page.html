@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar style="display: flex;">
+    <ion-title>Prikaz prodavnice</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="primary" routerLink="/admin/prodavnice">Back</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="display: flex;align-items: center;justify-content: center;height: 90vh;">
+    <ion-card style="color: black;">
+      <ion-grid>
+        <ion-row style="text-align: center;">
+          <ion-col style="display: flex;justify-content:center;align-items: center;">
+            <ion-text>Slika:</ion-text>
+          </ion-col>
+          <ion-col>
+            <ion-input placeholder="slika" [(ngModel)]="prodavnica.slika"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row style="text-align: center;">
+          <ion-col style="display: flex;justify-content:center;align-items: center;">
+            <ion-text>Naziv prodavnice:</ion-text>
+          </ion-col>
+          <ion-col style="display: flex;justify-content:center;align-items: center;">
+            <ion-input type="text" placeholder="naziv" [(ngModel)]="prodavnica.naziv"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row style="text-align: center;height: 80px;">
+          <ion-col style="display: flex;justify-content:center;align-items: center;">
+            <ion-text>Lokacija na kojoj se prodavnica nalazi:</ion-text>
+          </ion-col>
+          <ion-col style="display: flex;justify-content:center;align-items: center;">
+            <ion-input type="text" placeholder="lokacija" [(ngModel)]="prodavnica.lokacija"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col style="display: flex;justify-content:center;align-items: center;">
+            <ion-button (click)="dodajProdavnicu()">Sačuvaj izmenu</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </div>
+</ion-content>

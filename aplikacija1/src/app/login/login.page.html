@@ -12,9 +12,9 @@
                   <ion-label position="floating" style="text-align: left;">password</ion-label>
                   <ion-input type="password" [formControl]="password" ></ion-input>
               </ion-item>
-              <ion-button  disabled="true" routerLink="/app" id="loginButton" style="margin-left: auto;margin-right: auto;">Ulogujte se</ion-button>
+              <ion-button  disabled="true" id="loginButton" style="margin-left: auto;margin-right: auto;" (click)="ulogujSe()">Ulogujte se</ion-button>
           </ion-list>
-          <h5 style="margin-top: 20px; margin-bottom: 10px;">Nemate nalog ?</h5>
+          <h5 style="margin-top: 20px; margin-bottom: 10px;" >Nemate nalog <span routerLink="/admin/login">?</span></h5>
           <ion-button routerLink="/register" style="margin-bottom: 20px;" >Registrujte se</ion-button>
       </form>
   </div>

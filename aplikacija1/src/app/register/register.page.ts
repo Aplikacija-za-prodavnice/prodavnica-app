@@ -9,10 +9,9 @@ import { AccountService } from '../servisi/account/account.service';
 })
 export class RegisterPage implements OnInit {
 
-  public form?:FormGroup;
+  public form:FormGroup;
   public subscription;
-  private accountService:AccountService=new AccountService();
-  constructor(fb:FormBuilder) {
+  constructor(fb:FormBuilder, private accountService:AccountService) {
     this.form=fb.group({
       "firstName":this.firstName,
       "lastName":this.lastName,
@@ -21,11 +20,13 @@ export class RegisterPage implements OnInit {
       "password2":this.password2
     });
     this.subscription =this.form.valueChanges
-    .subscribe(data=>{document.getElementById("registerButton")?.setAttribute("disabled","false");this.accountService.account=data;});
+    .subscribe(data=>{
+      document.getElementById("registerButton")?.setAttribute("disabled","false");
+      this.accountService.account=data;
+    });
    }
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
-    console.log("Funkcija radi");
   }
 
   firstName:FormControl=new FormControl("",Validators.required);
@@ -35,8 +36,12 @@ export class RegisterPage implements OnInit {
   password2:FormControl = new FormControl("",[Validators.required,Validators.minLength(8)]);
   ngOnInit(): void {
   }
+  // funkcija koja se pokrece klikom na dugme registracija
   registracija(){
+    let subscription1=this.accountService.registracija(this.form)
+    .subscribe((data)=>{console.log(data);this.accountService.isAuthenticated=true;});
     this.subscription.unsubscribe();
+    subscription1.unsubscribe();
   }
 
 }

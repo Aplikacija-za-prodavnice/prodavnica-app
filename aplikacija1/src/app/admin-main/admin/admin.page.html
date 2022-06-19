@@ -1,0 +1,48 @@
+<ion-split-pane when="sm" contentId="second-content">
+  <ion-menu menuId="second" content-id="second-content">
+   <ion-header>
+       <ion-toolbar>
+           <ion-title class="ion-text-center" >
+               <h1>Glavni meni</h1>
+           </ion-title>
+       </ion-toolbar>
+  </ion-header>
+  <ion-content>
+      <ion-list>
+          <ion-list-header class="ion-text-center"  >Opcije</ion-list-header>
+          <ion-menu-toggle auto-hide="false">
+              <ion-item routerLink="/admin/proizvodi" >
+                <ion-icon color="primary" name="albums"></ion-icon>
+                <ion-label style="text-align: center;">Proizvodi</ion-label>
+              </ion-item>
+              <ion-item routerLink="/admin/prodavnice" >
+                <ion-icon name="cart" color="primary"></ion-icon>
+                <ion-label style="text-align: center;">Prodavnice</ion-label>
+              </ion-item>
+              <ion-item routerLink="/admin/kategorije" >
+                <ion-icon color="primary" name="albums"></ion-icon>
+                <ion-label style="text-align: center;">Kategorije</ion-label>
+              </ion-item>
+              <ion-item routerLink="/admin/personalizovane-kategorije" >
+                <ion-icon color="primary" name="albums"></ion-icon>
+                <ion-label style="text-align: center;">Personalizovane kategorije</ion-label>
+              </ion-item>
+          </ion-menu-toggle>
+      </ion-list>
+  </ion-content>
+  </ion-menu>
+  <!-- <ion-header>
+    <ion-toolbar style="display: flex;">
+      <ion-buttons slot="start" color="dark">
+          <ion-menu-toggle>
+            <ion-menu-button menu="second" ></ion-menu-button>
+          </ion-menu-toggle>
+        </ion-buttons>
+      <ion-title>Dobrodosli</ion-title>
+    </ion-toolbar>
+  </ion-header> -->
+  <div class="ion-page" id="second-content">
+    <h1 style="text-align: center;">Dobrodosli</h1>
+          <ion-router-outlet id="second-content"></ion-router-outlet>
+  </div>
+</ion-split-pane> 

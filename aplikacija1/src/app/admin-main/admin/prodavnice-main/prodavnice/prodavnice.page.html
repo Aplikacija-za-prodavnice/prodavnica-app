@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar style="display: flex;">
+    <ion-buttons slot="start" color="dark">
+        <ion-menu-toggle>
+          <ion-menu-button menu="second" ></ion-menu-button>
+        </ion-menu-toggle>
+      </ion-buttons>
+    <ion-title>Prodavnice</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-segment style="display: flex;align-items:center;justify-content: space-evenly; margin-top: 20px;margin-bottom: 20px;">
+    <ion-text>Dodaj novu prodavnicu</ion-text>
+    <ion-button routerLink="/admin/dodaj-prodavnicu">+</ion-button>
+  </ion-segment>
+  <ion-card color="black">
+    <ion-grid>
+      <ion-header>
+        <ion-row>
+          <ion-col><h3 style="text-align: center;">Naziv prodavnice</h3></ion-col>
+          <ion-col><h3 style="text-align: center;">Promeni i Obrisi</h3></ion-col>
+        </ion-row>
+      </ion-header>
+      <ion-row style="border-bottom: 0.5px solid rgba(0,0,0,0.3); background-color: bisque;" *ngFor="let prodavnica of  marketsAndProductsService.prodavnice" >
+        <ion-col routerLink="/admin/prodavnica/{{prodavnica.id}}"   class="ion-text-center ion-justify-content-center" style="display:flex;flex-direction:column;"><ion-text style="font-size:18px ;" >{{prodavnica.naziv}}</ion-text></ion-col>
+        <ion-col style="display: flex; justify-content:space-evenly;">
+          <ion-button routerLink="/admin/izmeni-prodavnicu/{{prodavnica.id}}"><ion-icon name="create"></ion-icon></ion-button>
+          <ion-button (click)="izbrisiProdavnicu(prodavnica)"><ion-icon name="trash"></ion-icon></ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</ion-content>

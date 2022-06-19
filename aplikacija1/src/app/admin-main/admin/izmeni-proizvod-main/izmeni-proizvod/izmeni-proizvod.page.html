@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Izmena proizvoda</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="primary" routerLink="/admin/proizvodi">Back</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="display: flex;align-items:center;justify-content:center;height:90vh;width:100%;">
+    <ion-card style="color:black;height: fit-content;">
+      <ion-grid style="text-align:center;height: 100%;">
+        <ion-row class="ion-align-items-center">
+          <ion-col>Naziv:</ion-col>
+          <ion-col>
+            <ion-input type="text" [value]="marketsAndProductsService.proizvodIzmeni.naziv"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row class="ion-align-items-center">
+          <ion-col>Slika:</ion-col>
+          <ion-col style="display:flex ;justify-content:center;">
+            <ion-input type="text" [value]="marketsAndProductsService.proizvodIzmeni.slika"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row class="ion-align-items-center">
+          <ion-col>Cena:</ion-col>
+          <ion-col>
+            <ion-input type="number" value={{marketsAndProductsService.proizvodIzmeni.cena}}></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row class="ion-align-items-center">
+          <ion-col>
+            <ion-label for="jedinice">Jedinica</ion-label>
+          </ion-col>
+          <ion-col>
+            <select id="jedinice">
+              <option style="border:0.5px solid black;" value="kg">kg</option>
+            </select>
+          </ion-col>
+        </ion-row >
+        <ion-row style="background-color:#3880ff;color:white;" class="ion-align-items-center">
+          <ion-col>Prodavnica u kojoj se nalazi:</ion-col>
+          <ion-col>
+            <ion-button (click)="openModal()"><ion-icon name="create"></ion-icon></ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngFor="let prodavnica of marketsAndProductsService.vratiProdavniceZaProizvod(marketsAndProductsService.proizvodIzmeni.UProdavnici)" class="ion-align-items-center">
+          <ion-col style="display:flex ;justify-content:center;">
+            <ion-thumbnail >
+              <img src={{prodavnica.slika}}/>
+            </ion-thumbnail>
+          </ion-col>
+          <ion-col>{{prodavnica.naziv}}</ion-col>
+        </ion-row>
+        <ion-row style="background-color:#3880ff;color:white;" class="ion-align-items-center">
+          <ion-col>Kategorija proizvoda:</ion-col>
+          <ion-col>
+            <ion-button (click)="otvoriKategorije()">
+              <ion-icon name="create"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngFor="let kategorija of marketsAndProductsService.vratiKategorijeZaProizvod(marketsAndProductsService.proizvodIzmeni.kategorije);index as i" class="ion-align-items-center">
+          <ion-col>kategorija {{i+1}}</ion-col>
+          <ion-col>{{kategorija.naziv}}</ion-col>
+        </ion-row>
+        <ion-row style="background-color:#3880ff;color:white;">
+          <ion-col>Personalizovane kategorije</ion-col>
+          <ion-col>
+            <ion-button (click)="otvoriPersonalizovano()">
+              <ion-icon name="create"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngFor="let per of marketsAndProductsService.vratiPersonalizovaneKategorijeZaProizvod(marketsAndProductsService.proizvodIzmeni.personalizovano)">
+          <ion-col>kategorija {{per.id}}</ion-col>
+          <ion-col>{{per.naziv}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button (click)="sacuvajProizvod()">Sačuvaj proizvod</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </div>
+</ion-content>

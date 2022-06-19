@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Prikaz kategorije</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/admin/kategorije" color="primary">Back</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="display: flex;align-items:center;justify-content:center;height: 90vh;">
+    <ion-card style="color:black">
+      <ion-grid>
+        <ion-row>
+          <ion-col style="display: flex;align-items:center;justify-content:center;">
+            <ion-text>ID kategorije:</ion-text>
+          </ion-col>
+          <ion-col style="display: flex;align-items:center;justify-content:center;">
+            <ion-text>{{kategorija.id}}</ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col style="display: flex;align-items:center;justify-content:center;">
+            <ion-text>Naziv kategorije:</ion-text>
+          </ion-col>
+          <ion-col style="display: flex;align-items:center;justify-content:center;">
+            <ion-text>{{kategorija.naziv}}</ion-text>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </div>
+</ion-content>

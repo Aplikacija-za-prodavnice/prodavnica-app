@@ -8,20 +8,21 @@
 </ion-header>
 
 <ion-content style="display: flex; flex-direction: column;">
-  <h1 style="text-align: center;" *ngIf="this.shoppingCartService.ShoppingCart.length>0">Proizvodi u korpi</h1>
-  <h1 style="text-align: center;width: 70%;margin-left: auto;margin-right: auto;" *ngIf="this.shoppingCartService.ShoppingCart.length===0">Nema proizvoda u korpi <br><br> Mora da se stavi odabiranje kolicine</h1>
+  <h1 style="text-align: center;" *ngIf="this.marketsAndProductsService.korpa.length>0">Proizvodi u korpi</h1>
+  <h1 style="text-align: center;width: 70%;margin-left: auto;margin-right: auto;" *ngIf="this.marketsAndProductsService.korpa.length===0">Korpa je prazna</h1>
   <ion-list>
-      <ion-card *ngFor=" let product of shoppingCartService.ShoppingCart">
+      <ion-card *ngFor=" let product of marketsAndProductsService.korpa">
           <div style="display:flex;flex-direction:column; justify-content: center; align-items:center;width:100%;">
-              <h1 style="color: black;">{{product.naziv}}</h1>
+              <h1 style="color: black;">{{product.proizvod.naziv}}</h1>
+              <h5 style="color: black;">Količina: {{product.cena}} {{product.proizvod.jedinica}}</h5>
               <div>
-                  <ion-button routerLink="/app/detaljnije-o-proizvodu" (click)="proizvodiSeachService.proizvod=product" >Detaljnije</ion-button>
-                  <ion-button style="max-width: fit-content;" (click)="izbaciProizvodIzKorpe(product);">-</ion-button>
+                  <ion-button routerLink="/app/detaljnije-o-proizvodu" (click)="marketsAndProductsService.proizvod=product.proizvod" >Detaljnije</ion-button>
+                  <ion-button style="max-width: fit-content;" (click)="marketsAndProductsService.izbaciIzKorpe(product)">-</ion-button>
               </div>
           </div>
       </ion-card>
   </ion-list>
-  <h1 *ngIf="this.shoppingCartService.ShoppingCart.length>0" style="text-align: center;">Ukupna cena:<br> {{ukupnaCena}} din</h1>
+  <h1 *ngIf="this.marketsAndProductsService.korpa.length>0" style="text-align: center;">Ukupna cena:<br> {{ukupnaCena}} din</h1>
   <div style="display: flex; justify-content: center;">
-      <ion-button *ngIf="this.shoppingCartService.ShoppingCart.length>0">Naruči</ion-button></div>
+      <ion-button *ngIf="this.marketsAndProductsService.korpa.length>0">Naruči</ion-button></div>
 </ion-content>
